@@ -1,8 +1,8 @@
 <?php
 
-namespace Dusterio\PlainSqs\Integrations;
+namespace KeithBrink\PlainSqs\Integrations;
 
-use Dusterio\PlainSqs\Sqs\Connector;
+use KeithBrink\PlainSqs\Sqs\Connector;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Queue\Events\JobProcessed;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dusterio\PlainSqs\Sqs;
+namespace KeithBrink\PlainSqs\Sqs;
 
 use Aws\Sqs\SqsClient;
 use Illuminate\Support\Arr;

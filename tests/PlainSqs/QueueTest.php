@@ -1,13 +1,13 @@
 <?php
 
-namespace Dusterio\PlainSqs\Tests;
+namespace KeithBrink\PlainSqs\Tests;
 use Aws\Sqs\SqsClient;
-use Dusterio\PlainSqs\Jobs\DispatcherJob;
-use Dusterio\PlainSqs\Sqs\Queue;
+use KeithBrink\PlainSqs\Jobs\DispatcherJob;
+use KeithBrink\PlainSqs\Sqs\Queue;
 
 /**
  * Class QueueTest
- * @package Dusterio\PlainSqs\Tests
+ * @package KeithBrink\PlainSqs\Tests
  */
 class QueueTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +28,7 @@ class QueueTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $method = new \ReflectionMethod(
-            'Dusterio\PlainSqs\Sqs\Queue', 'createPayload'
+            'KeithBrink\PlainSqs\Sqs\Queue', 'createPayload'
         );
 
         $method->setAccessible(true);

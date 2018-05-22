@@ -1,8 +1,8 @@
 <?php
 
-namespace Dusterio\PlainSqs\Sqs;
+namespace KeithBrink\PlainSqs\Sqs;
 
-use Dusterio\PlainSqs\Jobs\DispatcherJob;
+use KeithBrink\PlainSqs\Jobs\DispatcherJob;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Queue\Jobs\SqsJob;
