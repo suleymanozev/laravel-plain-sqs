@@ -38,7 +38,9 @@ class Queue extends SqsQueue
      */
     private function getClass($queue = null)
     {
-        if (!$queue) return Config::get('sqs-plain.default-handler');
+        if (!$queue) {
+            return Config::get('sqs-plain.default-handler');
+        }
 
         $queue = end(explode('/', $queue));
 
@@ -85,17 +87,18 @@ class Queue extends SqsQueue
      * @param string $class
      * @return array
      */
-    private function modifyPayload($payload, $class)
+    public function modifyPayload($payload, $class)
     {
         if (!is_array($payload)) {
             $payload = json_decode($payload, true);
         }
 
         $body = json_decode($payload['Body'], true);
-
+        
         if (json_last_error() != JSON_ERROR_NONE) {
-            $body = $payload['Body'];
+            $body = simplexml_load_string($payload['Body'], "SimpleXMLElement", LIBXML_NOCDATA);
         }
+        
 
         $body = [
             'job' => $class . '@handle',
