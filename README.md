@@ -1,5 +1,5 @@
 # Plain Sqs
-[![Build Status](https://travis-ci.org/keithbrink/laravel-plain-sqs.svg)](https://travis-ci.org/keithbrink/laravel-plain-sqs)
+[![Build Status](https://github.com/keithbrink/laravel-plain-sqs/workflows/laravel-tests/badge.svg)]
 
 A custom SQS connector for Laravel (or Lumen) that supports custom format JSON and XML payloads. Out of the box, Laravel expects
 SQS messages to be generated in specific format - format that includes job handler class and a serialized job.
