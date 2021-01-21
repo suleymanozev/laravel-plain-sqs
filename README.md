@@ -19,16 +19,6 @@ To install simply run:
 composer require keithbrink/laravel-plain-sqs
 ```
 
-Or add it to `composer.json` manually:
-
-```json
-{
-    "require": {
-        "keithbrink/laravel-plain-sqs": "~0.1"
-    }
-}
-```
-
 ### Usage in Lumen
 
 ```php
