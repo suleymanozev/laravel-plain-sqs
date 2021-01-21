@@ -2,14 +2,13 @@
 
 namespace KeithBrink\PlainSqs\Sqs;
 
-use KeithBrink\PlainSqs\Jobs\DispatcherJob;
+use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Queue\Jobs\SqsJob;
+use KeithBrink\PlainSqs\Jobs\DispatcherJob;
 
 /**
- * Class CustomSqsQueue
- * @package App\Services
+ * Class CustomSqsQueue.
  */
 class Queue extends SqsQueue
 {
@@ -23,11 +22,11 @@ class Queue extends SqsQueue
      */
     protected function createPayload($job, $data = '', $queue = null)
     {
-        if (!$job instanceof DispatcherJob) {
+        if (! $job instanceof DispatcherJob) {
             return parent::createPayload($job, $data, $queue);
         }
 
-        $handlerJob = $this->getClass($queue) . '@handle';
+        $handlerJob = $this->getClass($queue).'@handle';
 
         return $job->isPlain() ? json_encode($job->getPayload()) : json_encode(['job' => $handlerJob, 'data' => $job->getPayload()]);
     }
@@ -38,7 +37,7 @@ class Queue extends SqsQueue
      */
     private function getClass($queue = null)
     {
-        if (!$queue) {
+        if (! $queue) {
             return Config::get('sqs-plain.default-handler');
         }
 
@@ -74,7 +73,7 @@ class Queue extends SqsQueue
 
             $response = $this->modifyPayload($response['Messages'][0], $class);
 
-            if (preg_match('/5\.[4-6]\..*/', $this->container->version())) {
+            if (preg_match('/(5\.[4-8]\..*)|(6\.[0-9]*\..*)|(7\.[0-9]*\..*)|(8\.[0-9]*\..*)/', $this->container->version())) {
                 return new SqsJob($this->container, $this->sqs, $response, $this->connectionName, $queue);
             }
 
@@ -89,20 +88,19 @@ class Queue extends SqsQueue
      */
     public function modifyPayload($payload, $class)
     {
-        if (!is_array($payload)) {
+        if (! is_array($payload)) {
             $payload = json_decode($payload, true);
         }
 
         $body = json_decode($payload['Body'], true);
-        
+
         if (json_last_error() != JSON_ERROR_NONE) {
-            $body = simplexml_load_string($payload['Body'], "SimpleXMLElement", LIBXML_NOCDATA);
+            $body = simplexml_load_string($payload['Body'], 'SimpleXMLElement', LIBXML_NOCDATA);
         }
-        
 
         $body = [
-            'job' => $class . '@handle',
-            'data' => isset($body['data']) ? $body['data'] : $body
+            'job' => $class.'@handle',
+            'data' => isset($body['data']) ? $body['data'] : $body,
         ];
 
         $payload['Body'] = json_encode($body);
