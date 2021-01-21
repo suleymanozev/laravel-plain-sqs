@@ -26,5 +26,12 @@
         "psr-4": {
             "KeithBrink\\PlainSqs\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KeithBrink\\PlainSqs\\LaravelServiceProvider"
+            ]
+        }
     }
 }

@@ -29,29 +29,18 @@ Or add it to `composer.json` manually:
 }
 ```
 
-### Usage in Laravel 5
-
-```php
-// Add in your config/app.php
-
-'providers' => [
-    '...',
-    'KeithBrink\PlainSqs\Integrations\LaravelServiceProvider',
-];
-```
-
-### Usage in Lumen 5
+### Usage in Lumen
 
 ```php
 // Add in your bootstrap/app.php
-$app->loadComponent('queue', 'KeithBrink\PlainSqs\Integrations\LumenServiceProvider');
+$app->loadComponent('queue', 'KeithBrink\PlainSqs\LumenServiceProvider');
 ```
 
 ## Configuration
 
 ```php
 // Generate standard config file (Laravel only)
-php artisan vendor:publish
+php artisan vendor:publish --provider="KeithBrink\PlainSqs\LaravelServiceProvider"
 
 // In Lumen, create it manually (see example below) and load it in bootstrap/app.php
 $app->configure('sqs-plain');
