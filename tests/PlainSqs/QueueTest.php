@@ -32,5 +32,6 @@ class QueueTest extends TestCase
 
         $xml_array = json_decode(json_encode(simplexml_load_string($xml['Body'], 'SimpleXMLElement', LIBXML_NOCDATA)), true);
         $this->assertEquals($xml_array, $payload['data']);
+        $this->assertEquals('a926ca8b-b8d5-4d1b-8ec4-e3c153873fef', $payload['uuid']);
     }
 }

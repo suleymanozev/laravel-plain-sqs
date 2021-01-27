@@ -5,6 +5,7 @@ namespace KeithBrink\PlainSqs\Sqs;
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 use KeithBrink\PlainSqs\Jobs\DispatcherJob;
 
 /**
@@ -96,10 +97,15 @@ class Queue extends SqsQueue
 
         if (json_last_error() != JSON_ERROR_NONE) {
             $body = simplexml_load_string($payload['Body'], 'SimpleXMLElement', LIBXML_NOCDATA);
+
+            $uuid = (string) $body->NotificationMetaData->UniqueId;
+        } else {
+            $uuid = Str::random(32);
         }
 
         $body = [
             'job' => $class.'@handle',
+            'uuid' => $uuid,
             'data' => isset($body['data']) ? $body['data'] : $body,
         ];
 
