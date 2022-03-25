@@ -27,7 +27,7 @@ class Queue extends SqsQueue
             return parent::createPayload($job, $data, $queue);
         }
 
-        $handlerJob = $this->getClass($queue).'@handle';
+        $handlerJob = $this->getClass($queue) . '@handle';
 
         return $job->isPlain() ? json_encode($job->getPayload()) : json_encode(['job' => $handlerJob, 'data' => $job->getPayload()]);
     }
@@ -74,7 +74,7 @@ class Queue extends SqsQueue
 
             $response = $this->modifyPayload($response['Messages'][0], $class);
 
-            if (preg_match('/(5\.[4-8]\..*)|(6\.[0-9]*\..*)|(7\.[0-9]*\..*)|(8\.[0-9]*\..*)/', $this->container->version())) {
+            if (preg_match('/(5\.[4-8]\..*)|(6\.[0-9]*\..*)|(7\.[0-9]*\..*)|(8\.[0-9]*\..*)|(9\.[0-9]*\..*)/', $this->container->version())) {
                 return new SqsJob($this->container, $this->sqs, $response, $this->connectionName, $queue);
             }
 
@@ -104,7 +104,7 @@ class Queue extends SqsQueue
         }
 
         $body = [
-            'job' => $class.'@handle',
+            'job' => $class . '@handle',
             'uuid' => $uuid,
             'data' => isset($body['data']) ? $body['data'] : $body,
         ];
