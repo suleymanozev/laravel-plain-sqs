@@ -1,6 +1,6 @@
 <?php
 
-namespace KeithBrink\PlainSqs\Jobs;
+namespace Suleymanozev\PlainSqs\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;

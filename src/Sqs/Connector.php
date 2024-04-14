@@ -1,6 +1,6 @@
 <?php
 
-namespace KeithBrink\PlainSqs\Sqs;
+namespace Suleymanozev\PlainSqs\Sqs;
 
 use Aws\Sqs\SqsClient;
 use Illuminate\Support\Arr;

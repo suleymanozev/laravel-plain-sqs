@@ -23,14 +23,14 @@ composer require keithbrink/laravel-plain-sqs
 
 ```php
 // Add in your bootstrap/app.php
-$app->loadComponent('queue', 'KeithBrink\PlainSqs\LumenServiceProvider');
+$app->loadComponent('queue', 'Suleymanozev\PlainSqs\LumenServiceProvider');
 ```
 
 ## Configuration
 
 ```php
 // Generate standard config file (Laravel only)
-php artisan vendor:publish --provider="KeithBrink\PlainSqs\LaravelServiceProvider"
+php artisan vendor:publish --provider="Suleymanozev\PlainSqs\LaravelServiceProvider"
 
 // In Lumen, create it manually (see example below) and load it in bootstrap/app.php
 $app->configure('sqs-plain');
@@ -74,7 +74,7 @@ QUEUE_DRIVER=sqs-plain
 If you plan to push plain messages from Laravel or Lumen, you can rely on DispatcherJob:
 
 ```php
-use KeithBrink\PlainSqs\Jobs\DispatcherJob;
+use Suleymanozev\PlainSqs\Jobs\DispatcherJob;
 
 class ExampleController extends Controller
 {

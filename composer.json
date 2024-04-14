@@ -31,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "KeithBrink\\PlainSqs\\": "src/"
+            "Suleymanozev\\PlainSqs\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "KeithBrink\\PlainSqs\\LaravelServiceProvider"
+                "Suleymanozev\\PlainSqs\\LaravelServiceProvider"
             ]
         }
     }

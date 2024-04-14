@@ -1,12 +1,12 @@
 <?php
 
-namespace KeithBrink\PlainSqs\Sqs;
+namespace Suleymanozev\PlainSqs\Sqs;
 
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Queue\SqsQueue;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
-use KeithBrink\PlainSqs\Jobs\DispatcherJob;
+use Suleymanozev\PlainSqs\Jobs\DispatcherJob;
 
 /**
  * Class CustomSqsQueue.

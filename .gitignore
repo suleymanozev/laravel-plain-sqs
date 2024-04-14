@@ -5,3 +5,5 @@ Homestead.json
 composer.lock
 .phpunit.cache
 .env
+.idea
+.phpunit.result.cache

@@ -1,8 +1,8 @@
 <?php
 
-namespace KeithBrink\PlainSqs\Tests;
+namespace Suleymanozev\PlainSqs\Tests;
 
-use KeithBrink\PlainSqs\Sqs\Queue;
+use Suleymanozev\PlainSqs\Sqs\Queue;
 use PHPUnit\Framework\TestCase;
 
 /**

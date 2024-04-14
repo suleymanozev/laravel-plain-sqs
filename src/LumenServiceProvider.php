@@ -1,11 +1,11 @@
 <?php
 
-namespace KeithBrink\PlainSqs;
+namespace Suleymanozev\PlainSqs;
 
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\ServiceProvider;
-use KeithBrink\PlainSqs\Sqs\Connector;
+use Suleymanozev\PlainSqs\Sqs\Connector;
 
 /**
  * Class CustomQueueServiceProvider.
