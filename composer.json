@@ -1,5 +1,5 @@
 {
-    "name": "keithbrink/laravel-plain-sqs",
+    "name": "suleymanozev/laravel-plain-sqs",
     "type": "library",
     "description": "Custom SQS connector for Laravel that supports JSON & XML formats",
     "keywords": [
@@ -14,8 +14,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Keith Brink",
-            "email": "keith.brink@gmail.com"
+            "name": "Süleyman Özev",
+            "email": "suleymanozev@proton.me"
         }
     ],
     "require": {
